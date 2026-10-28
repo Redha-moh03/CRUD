@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car detail</title>
+</head>
+<body>
+    <%- include('./partials/navbar')%>
+    <h1>Car details</h1>
+    <p>Car name: <%= car.name %></p>
+    <p>Model year: <%= car.year %></p>
+    <p>Car company name: <%= car.companyName %></p>
+    <p>Seats in the car: <%= car.size %></p>
+    <p>Rating: <%= car.rating %></p>
+    <form action="/cars/<%=car._id%>/delete?_method=DELETE" method="post">
+        <button>Delete car</button>
+    </form>
+
+</body>
+</html>
