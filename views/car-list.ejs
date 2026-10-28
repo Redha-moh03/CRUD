@@ -9,7 +9,9 @@
 
 <body>
     <%- include('./partials/navbar')%>
-    
+    <%if (cars.length === 0) {%>
+    <p>No cars to show here you can add one <a href="/new">here</a></p>
+        <%}%>
     <%for(let oneCar of cars){%>
     <p><%= oneCar.name %></p>
     <a href="/cars/<%= oneCar._id %>">See car details</a>
