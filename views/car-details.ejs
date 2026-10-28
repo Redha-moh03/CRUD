@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car detail</title>
 </head>
+
 <body>
     <%- include('./partials/navbar')%>
     <h1>Car details</h1>
@@ -16,6 +18,7 @@
     <form action="/cars/<%=car._id%>/delete?_method=DELETE" method="post">
         <button>Delete car</button>
     </form>
-
+    <a href="/cars/<%=car._id%>/edit">Edit the car</a>
 </body>
+
 </html>

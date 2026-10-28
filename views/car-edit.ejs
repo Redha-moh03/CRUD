@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit the car</title>
+</head>
+
+<body>
+    <%- include('./partials/navbar')%>
+    <form action="/cars/<%= car._id %>?_method=PUT" method="post">
+        <label for="name">name</label>
+        <input value="<%= car.name %>" minlength="4" maxlength="25" placeholder="The car name" required name="name"
+            id="name" type="text">
+        <br>
+        <label for="year">Manufactur year</label>
+        <input value="<%= car.year %>" max="2027" min="1900" placeholder="year" required name="year" id="year"
+            type="number">
+        <br>
+        <label for="companyName">Car company name</label>
+        <input value="<%= car.companyName %>" required name="companyName" minlength="4" maxlength="25" id="companyName"
+            placeholder="Company name" type="text">
+        <br>
+        <label for="rating">Rating</label>
+        <input value="<%= car.rating %>" required min="0" max="10" id="rating" placeholder="Rate the car" name="rating"
+            type="number">
+        <br>
+        <label for="size">How many seats</label>
+        <input value="<%= car.size %>" required min="1" max="50" name="size" id="size" placeholder="Seats in the car"
+            type="number">
+        <br>
+        <button>Update</button>
+    </form>
+</body>
+
+</html>

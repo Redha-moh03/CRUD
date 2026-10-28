@@ -73,15 +73,21 @@ app.get('/cars', async (req, res) => {
     res.render('car-list.ejs', { cars: allCars })
 })
 app.get('/cars/:carId', async (req, res) => {
-const foundCar = await Cars.findById(req.params.carId)
-res.render('car-details.ejs',{car:foundCar})
+    const foundCar = await Cars.findById(req.params.carId)
+    res.render('car-details.ejs', { car: foundCar })
 })
-app.delete('/cars/:carId/delete', async(req,res)=>{
+app.delete('/cars/:carId/delete', async (req, res) => {
     const deleteCar = await Cars.findByIdAndDelete(req.params.carId)
     res.redirect('/cars')
 })
-
-
+app.get('/cars/:carId/edit', async (req, res) => {
+    const oneCar = await Cars.findByIdAndUpdate(req.params.carId)
+    res.render('car-edit.ejs', { car: oneCar })
+})
+app.put('/cars/:carId', async (req, res) => {
+    const updatedCar = await Cars.findByIdAndUpdate(req.params.carId, req.body)
+    res.redirect('/cars')
+})
 
 
 

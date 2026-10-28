@@ -9,6 +9,7 @@
 
 <body>
     <%- include('./partials/navbar')%>
+    
     <%for(let oneCar of cars){%>
     <p><%= oneCar.name %></p>
     <a href="/cars/<%= oneCar._id %>">See car details</a>
